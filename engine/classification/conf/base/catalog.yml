@@ -1,0 +1,258 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+data_input:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/iris.csv
+
+fill_rate:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/fill_rate/fill_rate.csv
+
+train_uid:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/save_uid/train_uids.csv
+
+test_uid:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/save_uid/test_uids.csv
+
+missing_imputations:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/missing_imputation/missing_imputations.csv
+
+compute_stats:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/standardize/compute_stats.csv
+
+train_one_hot_encoding:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/one_hot_encoding/train_one_hot_encoding.csv
+
+test_one_hot_encoding:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/one_hot_encoding/test_one_hot_encoding.csv
+
+col_rename:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/column_rename/col_rename.csv
+
+pre_iv_train:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/pre_iv_TrainTest/pre_iv_train.csv
+
+pre_iv_test:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/pre_iv_TrainTest/pre_iv_test.csv
+
+backup_train:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/TrainTest/train.csv
+
+backup_test:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/TrainTest/test.csv
+
+iv_table:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/iv_variable_selection/iv_table.csv
+
+imp_iv_table:
+  type: pandas.CSVDataSet
+  filepath: data/02_intermediate/iv_variable_selection/imp_iv_val.csv
+
+train:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/TrainTest/train.csv
+
+test:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/TrainTest/test.csv
+
+log_base_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Base/lr_base_metrics.csv
+
+lr_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Base/lr_train_predict.csv
+
+lr_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Base/lr_test_predict.csv
+
+log_base_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Logistic_Regresssion/Base/log_base_object.pickle
+
+filt_features_fwd:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Forward/filt_features_fwd.csv
+
+filt_features_bwd:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Backward/filt_features_bwd.csv
+
+filt_train_fwd:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/Logistic_Regresssion/Forward/filt_train_fwd.csv
+
+filt_test_fwd:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/Logistic_Regresssion/Forward/filt_test_fwd.csv
+
+filt_train_bwd:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/Logistic_Regresssion/Backward/filt_train_bwd.csv
+
+filt_test_bwd:
+  type: pandas.CSVDataSet
+  filepath: data/05_model_input/Logistic_Regresssion/Backward/filt_test_bwd.csv
+
+lr_fwd_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Forward/lr_fwd_metrics.csv
+
+lr_bwd_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Backward/lr_bwd_metrics.csv
+
+lrf_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Forward/lrf_train_predict.csv
+
+lrf_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Forward/lrf_test_predict.csv
+
+lrb_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Backward/lrb_train_predict.csv
+
+lrb_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Logistic_Regresssion/Backward/lrb_test_predict.csv
+
+lr_fwd_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Logistic_Regresssion/Forward/lr_fwd_object.pickle
+
+lr_bwd_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Logistic_Regresssion/Backward/lr_bwd_object.pickle
+
+dt_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Decision_Tree/Base/dt_object.pickle
+
+dt_randomsearch_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Decision_Tree/Random_Search/dt_randomsearch_object.pickle
+
+decision_tree_metric:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Base/dt_metric.csv
+
+dt_randomsearch_hyper_params:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Random_Search/dt_randomsearch_hyper_params.csv
+
+dt_feature_imp:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Base/dt_imp_features.csv
+
+dt_randomsearch_metric:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Random_Search/dt_randomsearch_metric.csv
+
+dt_rd_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Random_Search/dt_random_train_predict.csv
+
+dt_rd_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Random_Search/dt_random_test_predict.csv
+
+rf_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Random_Forest/Base/rf_object.pickle
+
+rf_base_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Base/rf_base_metrics.csv
+
+rf_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Base/rf_train_predict.csv
+
+rf_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Base/rf_test_predict.csv
+
+rf_feature_imp:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Base/rf_feature_imp.csv
+
+rf_grid_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Grid_Search/rf_grid_train_predict.csv
+
+rf_grid_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Grid_Search/rf_grid_test_predict.csv
+
+rf_grid_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Random_Forest/Grid_Search/rf_gridCV_object.pickle
+
+rf_gridCV_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Grid_Search/rf_gridCV_metrics.csv
+
+rf_grid_best_params:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Grid_Search/rf_grid_best_params.csv
+
+dt_grid_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Grid_Search/dt_grid_train_predict.csv
+
+dt_grid_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Grid_Search/dt_grid_test_predict.csv
+
+dt_gridCV_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Decision_Tree/Grid_Search/dt_gridCV_object.pickle
+
+dt_gridCV_metrics:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Grid_Search/dt_gridCV_metrics.csv
+
+dt_grid_best_params:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Decision_Tree/Grid_Search/dt_grid_best_params.csv
+
+rf_randomsearch_hyper_params:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Random_Search/rf_randomsearch_hyper_params.csv
+
+rf_randomsearch_metric:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Random_Search/rf_randomsearch_metric.csv
+
+rf_rd_train_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Random_Search/rf_random_train_predict.csv
+
+rf_rd_test_predict:
+  type: pandas.CSVDataSet
+  filepath: data/07_model_output/Random_Forest/Random_Search/rf_random_test_predict.csv
+
+rf_randomsearch_object:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/Random_Forest/Random_Search/rf_randomsearch_object.pickle
+
+

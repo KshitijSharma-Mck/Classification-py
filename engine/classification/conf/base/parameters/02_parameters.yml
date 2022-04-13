@@ -1,0 +1,94 @@
+#================================================= IV Table Parameters =================================================#
+
+top_iv: "auto"              # Enter the top iv values required else fill auto
+top_iv_range: 0.5           # top range for strong predictor if auto selected
+bottom_iv_range: 0.3        # bottom range for strong predictor if auto selected
+
+#==================================== Logistic Regression Forward/Backward =============================================#
+
+lr_FwdBwd_no_of_features:             # Leave empty for None else input numeric value.
+lr_FwdBwd_score_criteria: "roc_auc"   # select the score criteria on which the feature(s) should be selected in fwd/bwd log regression
+#options available; roc_auc,f1,precision,recall,accuracy (51 in total) get them using sorted(sklearn.metrics.SCORERS.keys())
+
+#================================================ Decision Tree ========================================================#
+
+dt_hyperparameter:
+  class_weight:
+  criterion: "gini"
+  max_depth : 2
+  max_features:                      # Maximum number of features that are taken into the account for splitting each node.
+  max_leaf_nodes:                    # Maximum number of leaf nodes a decision tree can have.
+  min_impurity_decrease: 0.0         #
+  min_samples_leaf: 1                # Minimum number of samples a leaf node must possess.
+  min_samples_split: 2               # Minimum number of samples a node must possess before splitting.
+  min_weight_fraction_leaf: 0.0      # Minimum fraction of the sum total of weights required to be at a leaf node.
+  random_state: 1
+  splitter: "best"
+
+#================================================Decision Tree Random search parameters ========================================================#
+dt_random_search_params:
+  criterion: ["gini","entropy"]
+  max_depth: [1,2,3,4,5,6,7,8]
+  max_features: ['auto','sqrt','log2']          # Maximum number of features that are taken into the account for splitting each node.
+  max_leaf_nodes: [2,3,4,5,6,7,8]                   # Maximum number of leaf nodes a decision tree can have.
+  min_samples_leaf: [1,2,3,4,5]                         # Minimum number of samples a leaf node must possess.
+  min_samples_split: [2,3,4,5,6,7,8,9]                  # Minimum number of samples a node must possess before splitting.
+  splitter: ["best","random"]
+
+#================================================ Decision Tree Grid search parameters ========================================================#
+# Values of search parameters is dependent on the no. of data points in the dataset, also higher the total no. of
+# -combinations of search params higher time will be required to run Grid Search CV, for ex. 3125 combinations take close to 3 hours.
+
+dt_grid_search_params:
+  criterion: ["gini","entropy"]
+  max_depth: [5, 10, 15, 20]
+  max_features: ['auto','sqrt','log2']          # Maximum number of features that are taken into the account for splitting each node.
+#  max_leaf_nodes: [2,3,4,5,6,7,8]                   # Maximum number of leaf nodes a decision tree can have.
+  min_samples_leaf: [3, 4, 5]                         # Minimum number of samples a leaf node must possess.
+  min_samples_split: [2,3,4,5]                  # Minimum number of samples a node must possess before splitting.
+#  n_estimators: [100, 200, 1000]
+
+
+#================================================ Random Forest ========================================================#
+
+rf_hyperparameters:
+  bootstrap: True              #If False, the whole dataset is used to build each tree.
+  ccp_alpha: 0.0
+  class_weight:
+  criterion: gini              #The function to measure the quality of a split, “gini” for the Gini impurity and “entropy” for the information gain.
+  max_depth:                   #The maximum depth of the tree.(to limit overfitting)
+  max_features: auto           #The number of features to consider when looking for the best split.
+  max_leaf_nodes:              #Maximum number of features random forest considers splitting a node.
+  max_samples:
+  min_impurity_decrease: 0.0
+  min_samples_leaf: 1          #Determines the minimum number of leaves required to split an internal node.
+  min_samples_split: 2         #The minimum number of samples required to split an internal node.
+  min_weight_fraction_leaf: 0.0
+  n_estimators: 100            #Number of trees the algorithm builds before averaging the predictions.
+  n_jobs:                      #If the value is 1, it can use only one processor but if the value is -1 there is no limit
+  oob_score: False             #It is a random forest cross-validation method
+  random_state: 1
+  verbose: 0
+  warm_start: False
+
+#================================================ Random Forest Grid search parameters ========================================================#
+
+rf_grid_search_params:
+  criterion: ["gini","entropy"]
+#  max_depth: [5, 10, 15, 20]
+  max_features: ['auto','sqrt','log2']          # Maximum number of features that are taken into the account for splitting each node.
+#  max_leaf_nodes: [3,4,5,6,7,8]                   # Maximum number of leaf nodes a decision tree can have.
+#  min_samples_leaf: [3, 4, 5]                        # Minimum number of samples a leaf node must possess.
+#  min_samples_split: [2,3,4,5]                  # Minimum number of samples a node must possess before splitting.
+#  n_estimators: [100, 200, 1000]
+
+#================================================ Random Forest Random search parameters ========================================================#
+
+rf_random_search_params:
+  criterion: ["gini","entropy"]
+  max_depth: [5, 10, 15, 20]
+  max_features: ['auto','sqrt','log2']          # Maximum number of features that are taken into the account for splitting each node.
+  max_leaf_nodes: [3,4,5,6,7,8]                   # Maximum number of leaf nodes a decision tree can have.
+  min_samples_leaf: [3, 4, 5]                        # Minimum number of samples a leaf node must possess.
+  min_samples_split: [2,3,4,5]                  # Minimum number of samples a node must possess before splitting.
+  #n_estimators: [100, 200, 1000]
